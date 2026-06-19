@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import logoPath from "@assets/favicon_1781884528715.png";
+
+const logoPath = "/favicon.svg";
 
 const navLinks = [
   { label: "Product", id: "product" },
@@ -13,7 +14,7 @@ const navLinks = [
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
-  const offset = 64; // navbar height
+  const offset = 64;
   const top = el.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top, behavior: "smooth" });
 }
@@ -29,14 +30,18 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => { if (window.innerWidth >= 768) setOpen(false); };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const handleNav = (id: string) => {
@@ -54,13 +59,11 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 cursor-pointer shrink-0">
             <img src={logoPath} alt="DeepSoch AI" className="w-7 h-7 rounded-lg object-contain bg-black" />
             <span className="text-[15px] font-semibold tracking-tight text-[#1D1D1F]">DeepSoch AI</span>
           </Link>
 
-          {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map(({ label, id }) => (
               <button
@@ -73,7 +76,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-2 shrink-0">
             <Link href="/contact" className="text-[13px] font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors px-4 py-2">
               Log In
@@ -83,9 +85,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
           <button
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen((value) => !value)}
             className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-md hover:bg-gray-100 transition-colors shrink-0"
             aria-label="Toggle menu"
           >
@@ -95,7 +96,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu panel */}
         <div
           className={`md:hidden transition-all duration-200 overflow-hidden border-t border-gray-100 ${
             open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
