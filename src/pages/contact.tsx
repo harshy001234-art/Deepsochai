@@ -5,8 +5,9 @@ import { Mail, MessageSquare, Building2, Headphones, ChevronLeft } from "lucide-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { assetPath } from "@/lib/assets";
 
-const logoPath = "/favicon.svg";
+const logoPath = assetPath("favicon.svg");
 
 const reasons = [
   "Get Started",

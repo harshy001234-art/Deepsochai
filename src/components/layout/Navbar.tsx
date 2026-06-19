@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { assetPath } from "@/lib/assets";
 
-const logoPath = "/favicon.svg";
+const logoPath = assetPath("favicon.svg");
 
 const navLinks = [
   { label: "Product", id: "product" },
