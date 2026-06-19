@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { assetPath } from "@/lib/assets";
 
-const logoPath = assetPath("favicon.svg");
+const logoPath = assetPath("favicon.png");
 
 const reasons = [
   "Get Started",

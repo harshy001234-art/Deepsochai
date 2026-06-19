@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { assetPath } from "@/lib/assets";
 
-const logoPath = assetPath("favicon.svg");
+const logoPath = assetPath("favicon.png");
 const contactHref = "/contact";
 
 const columns = [
