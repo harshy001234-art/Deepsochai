@@ -60,7 +60,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
-          <Link href="/" className="flex items-center gap-2.5 cursor-pointer shrink-0">
+          <Link href="https://deepsochai-six.vercel.app/" className="flex items-center gap-2.5 cursor-pointer shrink-0">
             <img src={logoPath} alt="DeepSoch AI" className="w-7 h-7 rounded-lg object-contain bg-black" />
             <span className="text-[15px] font-semibold tracking-tight text-[#1D1D1F]">DeepSoch AI</span>
           </Link>
